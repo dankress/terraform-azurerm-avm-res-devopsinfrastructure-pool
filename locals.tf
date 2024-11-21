@@ -51,7 +51,7 @@ locals {
   }
   organization_profile = {
     organizations = [for org in local.organization_profile_input.organizations : {
-      url         = "https://dev.azure.com/${org.name}"
+      url         = org.name
       projects    = org.projects
       parallelism = org.parallelism != null ? org.parallelism : var.maximum_concurrency
     }]
